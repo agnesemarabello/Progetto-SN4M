@@ -16,3 +16,9 @@ File HTML: diverse pagine, tra cui:
 -  `album.html`, `artist.html`, `track.html`: visualizzazione contenuti musicali
 
 altre pagine per profilo utente, ricerca, comunità e privacy.
+
+## Tecnologie Utilizzate
+-  `HTML5`: struttura delle pagine web
+-  `CSS3`: styling e layout responsivo
+-  `JavaScript`: interattività e gestione dinamica dei contenuti
+
