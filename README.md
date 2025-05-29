@@ -22,3 +22,11 @@ altre pagine per profilo utente, ricerca, comunità e privacy.
 -  `CSS3`: styling e layout responsivo
 -  `JavaScript`: interattività e gestione dinamica dei contenuti
 
+## Funzionalità Principali
+- Autenticazione Utente: registrazione e login sicuri per l’accesso personalizzato.
+-  Gestione Playlist: creazione, modifica, condivisione e visualizzazione di playlist.
+-  Esplorazione Contenuti: navigazione tra album, artisti, tracce e comunità musicali.
+-  Profilo Utente: modifica e visualizzazione delle informazioni personali.
+-  Ricerca Avanzata: ricerca di contenuti tramite parole chiave.
+- Condivisione Sociale: possibilità di condividere playlist con altri utenti.
+
