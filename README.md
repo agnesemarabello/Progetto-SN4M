@@ -11,12 +11,12 @@ Cartella `styles/`: contiene i file CSS per la definizione del layout e dello st
 
 File HTML: diverse pagine, tra cui:
 
-`index.html`: pagina principale
+-  `index.html`: pagina principale
 
-`login.html` e `signup.html`: gestione autenticazione utenti
+-  `login.html` e `signup.html`: gestione autenticazione utenti
 
-`playlist.html`, `shared-playlists.html`: gestione playlist
+-  `playlist.html`, `shared-playlists.html`: gestione playlist
 
-`album.html`, `artist.html`, `track.html`: visualizzazione contenuti musicali
+-  `album.html`, `artist.html`, `track.html`: visualizzazione contenuti musicali
 
 altre pagine per profilo utente, ricerca, comunità e privacy.
