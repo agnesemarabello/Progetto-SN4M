@@ -1,0 +1,194 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+    color: #f1f3f4;
+}
+.navbar {
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1ed760;
+}
+.logo i {
+    margin-right: 10px;
+}
+.btn-iscriviti, .btn-accedi {
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+.btn-iscriviti {
+    background-color: #1ed760;
+    color: #181a1b;
+    border: none;
+    margin-left: 1rem;
+}
+.btn-iscriviti:hover, .btn-iscriviti:focus {
+    background-color: #1db954;
+    color: #181a1b;
+}
+.btn-accedi {
+    background-color: transparent;
+    color: #f1f3f4;
+    border: 1px solid #1ed760;
+    margin-left: 0.5rem;
+}
+.btn-accedi:hover, .btn-accedi:focus {
+    background-color: #1ed760;
+    color: #181a1b;
+}
+.btn-cerca {
+    background-color: #1ed760;
+    color: #181a1b;
+    border: none;
+    margin-left: 0.5rem;
+    border-radius: 18px;
+}
+.btn-cerca:hover, .btn-cerca:focus {
+    background-color: #1db954;
+    color: #181a1b;
+}
+.form-control {
+    background-color: #232526;
+    color: #f1f3f4;
+    border: 1px solid #343a40;
+}
+.form-control:focus {
+    background-color: #232526;
+    color: #f1f3f4;
+    border-color: #1ed760;
+    box-shadow: 0 0 0 0.2rem rgba(30,215,96,.25);
+}
+main.container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+#auth-section, #dashboard {
+    background: #181a1b;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    padding: 32px 28px;
+    margin-bottom: 24px;
+}
+h2, h3 {
+    color: #1ed760;
+    font-weight: 700;
+}
+.card {
+    background: #232526;
+    color: #f1f3f4;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+#searchInput {
+    border-radius: 20px;
+    padding-left: 15px;
+}
+#search-preview {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 576px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    main.container {
+        padding: 0 8px;
+    }
+    #auth-section, #dashboard {
+        padding: 18px 8px;
+    }
+}
+
+.card-playlist {
+    background-color: #181818;
+    color: white;
+    border-radius: 15px;
+    padding: 1rem;
+    transition: transform 0.2s ease;
+}
+.card-playlist:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.bg-light-subtle {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+.bg-light-subtle:hover {
+    background-color: #efefef;
+}
+.card-title a:hover {
+    color: #1db954;
+}
+
+#search-preview {
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(30,215,96,0.10);
+    background: #181818;
+    color: #f1f3f4;
+    border: none;
+    overflow: hidden;
+}
+
+#search-preview .list-group-item {
+    background: #181818;
+    color: #f1f3f4;
+    border: none;
+    padding: 0.75rem 1rem;
+    transition: background 0.15s;
+    font-size: 1rem;
+}
+
+#search-preview .list-group-item.active,
+#search-preview .list-group-item:hover,
+#search-preview .list-group-item:focus {
+    background: #232526;
+    color: #1ed760;
+    cursor: pointer;
+}
+
+#search-preview img {
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    background: #232526;
+}
+
+/* Rendi visibile il testo autore nei risultati ricerca */
+#search-preview .text-muted,
+#search-preview .text-muted.small {
+    color: #b3f36b !important; /* verde chiaro Spotify */
+    opacity: 1 !important;
+}
+
+.btn-spotify {
+    background: #1ed760;
+    color: #181818;
+    border: none;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: background 0.2s;
+}
+.btn-spotify:hover, .btn-spotify:focus {
+    background: #1db954;
+    color: #181818;
+}
+.link-light {
+    color: #f1f3f4 !important;
+}
+.link-light:hover, .link-light:focus {
+    color: #1ed760 !important;
+    text-decoration: underline !important;
+}
+.link-underline-opacity-0 {
+    text-decoration: none !important;
+}

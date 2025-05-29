@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #f1f3f4;
+}
+.card-community {
+    background: #181818;
+    color: #f1f3f4;
+    border-radius: 18px;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: transform 0.18s;
+}
+.card-community:hover {
+    transform: scale(1.015);
+    box-shadow: 0 8px 24px rgba(30,215,96,0.10);
+}
+.badge-spotify {
+    background: #1ed760;
+    color: #181818;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+.btn-spotify {
+    background: #1ed760;
+    color: #181818;
+    border: none;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: background 0.2s;
+}
+.btn-spotify:hover, .btn-spotify:focus {
+    background: #1db954;
+    color: #181818;
+}
+.form-control, textarea {
+    background: #232526;
+    color: #f1f3f4;
+    border: 1px solid #343a40;
+}
+.form-control:focus, textarea:focus {
+    background: #232526;
+    color: #f1f3f4;
+    border-color: #1ed760;
+    box-shadow: 0 0 0 0.2rem rgba(30,215,96,.15);
+}
+hr {
+    border-top: 2px solid #1ed760;
+    opacity: 0.5;
+}
+.section-title {
+    color: #1ed760;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+.navbar {
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1ed760;
+}
+.logo i {
+    margin-right: 10px;
+}
