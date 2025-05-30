@@ -17,18 +17,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const id = getQueryParam('id');
     const container = document.getElementById('track-details');
     if (!id) {
-        container.innerHTML = `<div class="alert alert-danger">ID brano non fornito.</div>`;
+        container.innerHTML = `<div class="alert alert-danger">ID brano non fornito</div>`;
         return;
     }
     let track;
     try {
         track = await getTrack(id);
     } catch (e) {
-        container.innerHTML = `<div class="alert alert-danger">Errore nel recupero del brano.</div>`;
+        container.innerHTML = `<div class="alert alert-danger">Errore nel recupero del brano</div>`;
         return;
     }
     if (!track) {
-        container.innerHTML = `<div class="alert alert-danger">Brano non trovato.</div>`;
+        container.innerHTML = `<div class="alert alert-danger">Brano non trovato</div>`;
         return;
     }
 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     let user = users.find(u => u.userID === sessionStorage.getItem('logged'));
     if (!user) {
-        container.innerHTML = `<div class="alert alert-warning">Devi essere loggato per aggiungere brani alle playlist.</div>`;
+        container.innerHTML = `<div class="alert alert-warning">Devi essere loggato per aggiungere brani alle playlist</div>`;
         return;
     }
     if (!user.playlist) user.playlist = [];
@@ -110,12 +110,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (selected === "") {
             playlistNome = newPlaylistName.value.trim();
             if (!playlistNome) {
-                playlistMsg.innerHTML = `<span class="text-danger">Inserisci un nome per la nuova playlist.</span>`;
+                playlistMsg.innerHTML = `<span class="text-danger">Inserisci un nome per la nuova playlist</span>`;
                 return;
             }
             // Crea nuova playlist
             if (user.playlist.some(p => p.nome === playlistNome)) {
-                playlistMsg.innerHTML = `<span class="text-danger">Hai già una playlist con questo nome.</span>`;
+                playlistMsg.innerHTML = `<span class="text-danger">Hai già una playlist con questo nome</span>`;
                 return;
             }
             user.playlist.push({
@@ -134,11 +134,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Aggiungi a playlist esistente
             let pl = user.playlist.find(p => p.nome === playlistNome);
             if (!pl) {
-                playlistMsg.innerHTML = `<span class="text-danger">Playlist non trovata.</span>`;
+                playlistMsg.innerHTML = `<span class="text-danger">Playlist non trovata</span>`;
                 return;
             }
             if (pl.tracks.some(t => t.id === track.id)) {
-                playlistMsg.innerHTML = `<span class="text-warning">Questo brano è già nella playlist.</span>`;
+                playlistMsg.innerHTML = `<span class="text-warning">Questo brano è già nella playlist</span>`;
                 return;
             }
             pl.tracks.push({
@@ -155,7 +155,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         let idx = users.findIndex(u => u.userID === user.userID);
         users[idx] = user;
         localStorage.setItem('users', JSON.stringify(users));
-        playlistMsg.innerHTML = `<span class="text-success">Brano aggiunto alla playlist!</span>`;
+        Swal.fire({
+            icon: 'success',
+            title: 'Fatto!',
+            text: 'Brano aggiunto alla playlist',
+            timer: 1800,
+            background: 'black',
+            color: 'white',
+            showConfirmButton: false,
+            customClass: {
+                popup: 'swal2-rounded'
+            }
+        });
         addForm.reset();
         if (playlistSelect.value === "") {
             newPlaylistDiv.style.display = "block";

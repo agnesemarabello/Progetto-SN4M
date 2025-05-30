@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('searchInput');
     const preview = document.getElementById('search-preview');
     const form = document.getElementById('search-form');
+    preview.classList.add("scroll-container");
+    preview.style.height = '400px'; // invece di max-height
+    preview.style.overflowY = 'auto';
 
     let lastQuery = "";
     let debounceTimeout = null;

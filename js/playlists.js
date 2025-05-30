@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!playlist) {
         if (container) {
-            container.innerHTML = `<div class="alert alert-warning">Playlist non trovata.</div>`;
+            container.innerHTML = `<div class="alert alert-warning">Playlist non trovata</div>`;
         }
         return;
     }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function render() {
         playlist = user.playlist.find(p => p.nome === playlistName);
         if (!playlist) {
-            container.innerHTML = `<div class="alert alert-warning">Playlist non trovata.</div>`;
+            container.innerHTML = `<div class="alert alert-warning">Playlist non trovata</div>`;
             return;
         }
 
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="list-group mb-4" id="tracks-list">
                 ${
                     playlist.tracks.length === 0
-                    ? `<li class="list-group-item bg-dark text-muted text-center border-secondary">Nessun brano nella playlist.</li>`
+                    ? `<li class="list-group-item bg-dark text-muted text-center border-secondary">Nessun brano nella playlist</li>`
                     : playlist.tracks.map((t, i) => `
                         <li class="list-group-item bg-dark text-white border-secondary d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
@@ -87,14 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('#tracks-list button[data-index]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const idx = parseInt(this.getAttribute('data-index'));
-                playlist.tracks.splice(idx, 1);
-                if (playlist.tracks.length === 0) {
+                // Se è l'ultima traccia, chiedi conferma
+                if (playlist.tracks.length === 1) {
+                    const conferma = confirm('Eliminando questa traccia la playlist verrà eliminata. Sei sicuro di voler procedere?');
+                    if (!conferma) return;
                     user.playlist = user.playlist.filter(p => p.nome !== playlistName);
                     saveUsers(users);
-                    alert('Playlist eliminata perché vuota.');
                     window.location.href = 'index.html';
                     return;
                 }
+                // Altrimenti elimina normalmente
+                playlist.tracks.splice(idx, 1);
                 saveUsers(users);
                 render();
             });

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
         if (filtered.length === 0) {
-            communityList.innerHTML = `<div class="alert alert-info">Nessuna comunità trovata.</div>`;
+            communityList.innerHTML = `<div class="alert alert-info">Nessuna comunità trovata</div>`;
             return;
         }
         communityList.innerHTML = filtered.map(c => `

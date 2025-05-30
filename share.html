@@ -36,6 +36,10 @@
             border-color: #1ed760;
             box-shadow: 0 0 0 0.2rem rgba(30,215,96,.15);
         }
+        .form-control::placeholder {
+            color: #bdbdbd !important;
+            opacity: 1;
+        }
         .btn-spotify {
             background: #1ed760;
             color: #181818;
@@ -104,12 +108,12 @@
 
             <div class="mb-3">
                 <label for="share-tags" class="form-label">Tag (separati da virgola)</label>
-                <input type="text" id="share-tags" class="form-control" placeholder="es. rock, workout, chill">
+                <input type="text" id="share-tags" class="form-control text-white mb-3" placeholder="es. rock, workout, chill">
             </div>
 
             <div class="mb-3">
                 <label for="share-desc" class="form-label">Descrizione</label>
-                <textarea id="share-desc" class="form-control" rows="3" placeholder="Scrivi qualcosa sulla tua playlist..."></textarea>
+                <textarea id="share-desc" class="form-control text-white mb-3" rows="3" placeholder="Scrivi qualcosa sulla tua playlist..."></textarea>
             </div>
 
             <button class="btn btn-spotify w-100" type="submit">

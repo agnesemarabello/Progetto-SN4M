@@ -42,7 +42,7 @@
     <div class="container mt-5 mb-5">
         <h2 class="section-title">Comunità Musicali</h2>
         <form id="search-community-form" class="mb-4">
-            <input type="text" class="form-control form-control-lg" id="community-search" placeholder="Cerca per titolo, descrizione o tag...">
+            <input type="text" class="form-control text-white mb-3" id="community-search" placeholder="Cerca per titolo, descrizione o tag...">
         </form>
         <div id="community-list" class="mb-5"></div>
         <hr>
@@ -50,10 +50,10 @@
         <form id="create-community-form" class="mb-4">
             <label for="community-title" class="form-label fw-bold">Titolo</label>
             <input type="text" class="form-control text-white mb-3" id="community-title" placeholder="Titolo" required>
-            <label for="community-title" class="form-label fw-bold">Descrizione</label>
-            <textarea class="form-control text-white mb-3" id="community-desc" placeholder="Descrizione" rows="2" required></textarea> 
-            <label for="community-title" class="form-label fw-bold">Tag separati da virgola</label>
-            <input type="text" class="form-control mb-3" id="community-tags" placeholder="Tag separati da virgola" required>
+            <label for="community-desc" class="form-label fw-bold">Descrizione</label>
+            <textarea class="form-control text-white mb-3" id="community-desc" placeholder="Inserisci una descrizione" rows="2" required></textarea>
+            <label for="community-tags" class="form-label fw-bold">Tag separati da virgola</label>
+            <input type="text" class="form-control text-white mb-3" id="community-tags" placeholder="Inserisci tag separati da virgola" required>
             <button class="btn btn-spotify px-4" type="submit"><i class="fas fa-plus me-2"></i>Crea comunità</button>
             <div id="community-create-msg" class="mt-3"></div>
         </form>

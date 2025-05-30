@@ -45,7 +45,28 @@
                 </form>
                 <button class="btn btn-iscriviti me-2" type="button" id="signup-btn">Iscriviti</button>
                 <button class="btn btn-accedi" type="button" id="login-btn">Accedi</button>
-                <button class="btn btn-accedi d-none" type="button" id="logout-btn">Esci</button>
+                <button class="btn btn-accedi" type="button" id="logout-btn">Esci</button>
+
+                    <script>
+                        const logoutBtn = document.getElementById("logout-btn");
+                        const clonedBtn = logoutBtn.cloneNode(true);
+                        logoutBtn.parentNode.replaceChild(clonedBtn, logoutBtn);
+
+                        clonedBtn.addEventListener("click", function (e) {
+                        e.preventDefault(); // Impedisce ogni comportamento predefinito
+                        e.stopImmediatePropagation(); // Blocca altri eventuali listener
+
+                        const conferma = confirm("Sei sicuro di voler uscire?");
+                        if (conferma) {
+                            sessionStorage.removeItem("logged");
+                            window.location.href = "index.html";
+                            console.log("Logout effettuato con successo");
+                        } else {
+                            console.log("Logout annullato");
+                        }
+                });
+                </script>
+
                 <button class="btn btn-outline-light ms-2 d-none" type="button" id="profile-btn">
                     <i class="fas fa-user"></i> Profilo
                 </button>
@@ -57,7 +78,7 @@
         <div id="auth-section">
             <p class="lead text-center" style="font-size: 1.5rem; margin-top: 2rem;">
                 Benvenuto in <span class="fw-bold" style="color:#1ed760;">MyMusic</span>!<br>
-                <span style="font-size: 1.1rem;">Accedi o registrati per iniziare.</span>
+                <span style="font-size: 1.1rem;"><a href="login.html" class="link-success">Accedi</a> o <a href="signup.html" class="link-success">Registrati</a> per iniziare.</span>
             </p>        
         </div>
         <div id="dashboard" style="display: none;">

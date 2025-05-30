@@ -19,12 +19,11 @@
     </style>
 </head>
 <body>
-    <div class="logo text-center my-4">
-        <i class="fas fa-music fa-2x"></i>
-        <span class="fs-3 ms-2">MyMusic</span>
-    </div>
-
     <div class="signup-container container">
+        <div class="logo text-center mb-4">
+            <i class="fas fa-music fa-2x"></i>
+            <span class="fs-3 ms-2">MyMusic</span>
+        </div>
         <div class="text-center mb-4">
             <h1 class="h4 mb-2">Iscriviti per iniziare ad ascoltare</h1>
         </div>
@@ -34,12 +33,12 @@
                 <div class="col-md-6 mb-3">
                     <label for="InputNome" class="form-label">Nome</label>
                     <input type="text" name="nome" class="form-control" id="InputNome" onkeyup="verifica(this)">
-                    <div class="form-text">Campo obbligatorio</div>
+                    <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="InputCognome" class="form-label">Cognome</label>
                     <input type="text" name="cognome" class="form-control" id="InputCognome" onkeyup="verifica(this)">
-                    <div class="form-text">Campo obbligatorio</div>
+                    <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
                 </div>
             </div>
             <div class="mb-3">
@@ -50,33 +49,33 @@
                     <option value="F">F</option>
                     <option value="Altro">Altro</option>
                 </select>
-                <div class="form-text">Campo obbligatorio</div>
+                <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
             </div>
             <div class="mb-3">
                 <label for="InputUID" class="form-label">UserID</label>
                 <input type="text" name="uid" class="form-control" id="InputUID" onkeyup="verifica(this)">
-                <div class="form-text">Campo obbligatorio</div>
+                <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3 ">
                     <label for="InputEmail1" class="form-label">Indirizzo e-mail</label>
                     <input type="email" name="email" class="form-control" id="InputEmail1" onkeyup="verifica(this)">
-                    <div class="form-text">Campo obbligatorio</div>
+                    <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="InputEmail2" class="form-label">Conferma e-mail</label>
                     <input type="email" name="email2" class="form-control" id="InputEmail2" onkeyup="verifica(this)">
-                    <div class="form-text">Campo obbligatorio</div>
+                    <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio</div>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="InputPreferenza" class="form-label">Artista preferito</label>
                 <select class="form-select" name="preferenza" id="InputPreferenza">
                     <option selected value="">Seleziona un artista</option>
-                    <!-- Options will be populated by JavaScript -->
+                    <!-- Le opzioni vengono aggiunte dinamicamente tramite JavaScript -->
 
                 </select>
-                <div class="form-text">Campo opzionale</div>
+                <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo opzionale</div>
             </div>
             <div class="mb-3">
                 <label for="InputGenerePreferito" class="form-label">Genere musicale preferito</label>
@@ -91,20 +90,20 @@
                     <option value="country">Country</option>
                     <option value="reggae">Reggae</option>
                 </select>
-                <div class="form-text">Campo opzionale</div>
+                <div class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo opzionale</div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="InputPassword1" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="InputPassword1"
                         aria-describedby="passwordHelp" onkeyup="verifica(this)">
-                    <div id="passwordHelp" class="form-text">Campo obbligatorio, minimo 8 caratteri</div>
+                    <div id="passwordHelp" class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio (minimo 8 caratteri)</div>
                 </div>
                 <div class="col-md-6 mb-3" id="DivPassword2">
                     <label for="InputPassword2" class="form-label">Conferma Password</label>
                     <input type="password" class="form-control" id="InputPassword2" aria-describedby="password2Help"
                         onkeyup="verifica(this)">
-                    <div id="password2Help" class="form-text">Campo obbligatorio, minimo 8 caratteri</div>
+                    <div id="password2Help" class="form-text" style="color: rgba(211, 211, 211, 0.4);">Campo obbligatorio (minimo 8 caratteri)</div>
                 </div>
             </div>
             <div class="form-check mb-3">
@@ -112,8 +111,8 @@
                 <label class="form-check-label" for="invalidCheck">
                   Accetta i <a href="privacy.html">termini e condizioni</a> sulla privacy
                 </label>
-                <div class="invalid-feedback">
-                  Devi accettare prima di inviare.
+                <div class="invalid-feedback" style="color: rgba(211, 211, 211, 0.4);">
+                  Per procedere, devi accettare i termini e le condizioni
                 </div>
             </div>
             <div class="row mb-3">
