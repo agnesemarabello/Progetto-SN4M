@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const playlists = user?.playlist || [];
         if (playlistList) {
             if (playlists.length === 0) {
-                playlistList.innerHTML = `<div class="col"><div class="alert alert-info">Nessuna playlist trovata.</div></div>`;
+                playlistList.innerHTML = `<div class="col"><div class="alert alert-info">Nessuna playlist trovata</div></div>`;
             } else {
                 playlistList.className = "row row-cols-1 row-cols-md-3 g-4";
                 playlistList.innerHTML = playlists.map(p => {

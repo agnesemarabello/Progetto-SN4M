@@ -11,6 +11,14 @@ function getLoggedUser() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // se non sei loggato, non vengono mostrate le comunità
+    const container = document.getElementById('community-section');
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    let user = users.find(u => u.userID === sessionStorage.getItem('logged'));
+    if (!user) {
+        container.innerHTML = `<div class="alert alert-warning">Devi essere loggato per partecipare o creare comunità</div>`;
+        return;
+    }
     const communityList = document.getElementById('community-list');
     const searchInput = document.getElementById('community-search');
     const createForm = document.getElementById('create-community-form');
@@ -77,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const descrizione = document.getElementById('community-desc').value.trim();
         const tags = document.getElementById('community-tags').value.split(',').map(t => t.trim()).filter(Boolean);
         if (!titolo || !descrizione || tags.length === 0) {
-            createMsg.innerHTML = `<span class="text-danger">Compila tutti i campi.</span>`;
+            createMsg.innerHTML = `<span class="text-danger">Compila tutti i campi</span>`;
             return;
         }
         const communities = getCommunities();
