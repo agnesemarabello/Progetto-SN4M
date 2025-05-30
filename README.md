@@ -1,4 +1,32 @@
 # Progetto-SN4M
-Questo progetto è stato realizzato per l'esame di Applicazioni Web e Cloud di Informatica per la comunicazione digitale di UniMi e rappresenta un’applicazione web dedicata alla gestione e condivisione di playlist musicali. Il sistema permette agli utenti di creare, modificare e condividere playlist, esplorare comunità musicali e interagire con altri utenti tramite funzionalità di ricerca, login e profilo personalizzato.
+## Introduzione
+Il progetto SN4M è un'applicazione web sviluppata nell'ambito di un corso universitario per la gestione e la condivisione di contenuti musicali. Consente agli utenti di esplorare album, artisti, playlist e comunità, nonché di creare e condividere playlist personalizzate.
 
-Il progetto è sviluppato utilizzando HTML, CSS e JavaScript, con particolare attenzione all’usabilità e all’esperienza utente.
+L’interfaccia è composta da pagine HTML dinamiche, con supporto di CSS e JavaScript, che garantiscono un’esperienza utente moderna e interattiva.
+
+## Struttura del progetto
+Cartella `js/`: contiene gli script JavaScript per la gestione delle funzionalità interattive.
+
+Cartella `styles/`: contiene i file CSS per la definizione del layout e dello stile grafico.
+
+Diversi file HTML tra cui:
+-  `index.html`: pagina principale
+-  `login.html` e `signup.html`: gestione autenticazione utenti
+-  `playlist.html`, `shared-playlists.html`: gestione playlist
+-  `album.html`, `artist.html`, `track.html`: visualizzazione contenuti musicali
+
+altre pagine per profilo utente, ricerca, comunità e privacy.
+
+## Tecnologie Utilizzate
+-  `HTML5`: struttura delle pagine web
+-  `CSS3`: styling e layout responsivo
+-  `JavaScript`: interattività e gestione dinamica dei contenuti
+
+## Funzionalità Principali
+- Autenticazione Utente: registrazione e login sicuri per l’accesso personalizzato.
+-  Gestione Playlist: creazione, modifica, condivisione e visualizzazione di playlist.
+-  Esplorazione Contenuti: navigazione tra album, artisti, tracce e comunità musicali.
+-  Profilo Utente: modifica e visualizzazione delle informazioni personali.
+-  Ricerca Avanzata: ricerca di contenuti tramite parole chiave.
+- Condivisione Sociale: possibilità di condividere playlist con altri utenti.
+
