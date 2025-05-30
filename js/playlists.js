@@ -99,6 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Altrimenti elimina normalmente
                 playlist.tracks.splice(idx, 1);
                 saveUsers(users);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Brano rimosso!',
+                    text: 'Il brano è stato rimosso dalla playlist',
+                    timer: 1800,
+                    showConfirmButton: false
+                });
                 render();
             });
         });

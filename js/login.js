@@ -14,16 +14,25 @@ function controlla(){
 
     if (tmp == null){
         alert("Username non registrato");
-    }
-    else{
-        var password = document.getElementById('Password').value;
+    } else{
+        var passwordInput = document.getElementById('Password');
+        var errorSpan = document.getElementById('password-error');
+        var password = passwordInput.value;
         password = CryptoJS.MD5(password).toString();
-        if (utenti[tmp].password == password){
-            sessionStorage.setItem('logged', username);
-            window.location.href = 'index.html';
-        }
-        else{
-            alert("Password errata");
+        if (utenti[tmp].password == password) {
+        sessionStorage.setItem('logged', username);
+        window.location.href = 'index.html';
+        } else {
+            passwordInput.classList.add('is-invalid');
+            if (errorSpan) {
+                errorSpan.textContent = "Password errata";
+                errorSpan.style.display = "block";
+            }
+            passwordInput.addEventListener('input', function handler() {
+                passwordInput.classList.remove('is-invalid');
+                if (errorSpan) errorSpan.style.display = "none";
+                passwordInput.removeEventListener('input', handler);
+            });
         }
     }
 }

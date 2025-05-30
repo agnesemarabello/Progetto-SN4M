@@ -113,11 +113,17 @@ function submitTest() {
 
     // Controllo privacy policy
     var privacyCheck = document.getElementById("invalidCheck");
+    var privacyError = document.getElementById("privacy-error");
     if (!privacyCheck.checked) {
         privacyCheck.classList.add('is-invalid');
+        if (privacyError) {
+            privacyError.textContent = "Per procedere devi accettare la privacy policy";
+            privacyError.style.display = "block";
+        }
         isOk = false;
     } else {
         privacyCheck.classList.remove('is-invalid');
+        if (privacyError) privacyError.style.display = "none";
     }
 
     if (isOk) {

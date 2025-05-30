@@ -68,3 +68,6 @@ body {
             border-color: #1db954;
             color: #181a1b;
         }
+        .form-check-input.is-invalid ~ .form-check-label {
+            color: inherit !important;
+        }
