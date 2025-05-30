@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const user = getLoggedUser();
     if (!user) {
-        shareMsg.innerHTML = `<span class="text-danger">Devi essere loggato.</span>`;
+        shareMsg.innerHTML = `<span class="text-danger">Devi essere loggato</span>`;
         return;
     }
 
@@ -46,20 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const tags = document.getElementById('share-tags').value.split(',').map(t => t.trim()).filter(Boolean);
         const descrizione = document.getElementById('share-desc').value.trim();
         if (!playlistName || !communityId) {
-            shareMsg.innerHTML = `<span class="text-danger">Seleziona playlist e comunità.</span>`;
+            shareMsg.innerHTML = `<span class="text-danger">Seleziona playlist e comunità</span>`;
             return;
         }
         const playlist = (user.playlist || []).find(p => p.nome === playlistName);
         const communitiesAll = getCommunities();
         const community = communitiesAll.find(c => c.id === communityId);
         if (!playlist || !community) {
-            shareMsg.innerHTML = `<span class="text-danger">Errore nella selezione.</span>`;
+            shareMsg.innerHTML = `<span class="text-danger">Errore nella selezione</span>`;
             return;
         }
         if (!community.sharedPlaylists) community.sharedPlaylists = [];
         // Evita doppioni
         if (community.sharedPlaylists.some(pl => pl.nome === playlist.nome && pl.userID === user.userID)) {
-            shareMsg.innerHTML = `<span class="text-warning">Hai già condiviso questa playlist in questa comunità.</span>`;
+            shareMsg.innerHTML = `<span class="text-warning">Hai già condiviso questa playlist in questa comunità</span>`;
             return;
         }
             community.sharedPlaylists.push({
@@ -70,7 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
             descrizione
         });
         saveCommunities(communitiesAll);
-        shareMsg.innerHTML = `<span class="text-success">Playlist condivisa!</span>`;
+        Swal.fire({
+            icon: 'success',
+            title: 'Playlist condivisa!',
+            showConfirmButton: false,
+            timer: 1500
+        });
         shareForm.reset();
     });
 });

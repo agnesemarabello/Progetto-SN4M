@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const song = songInput.value.trim();
         const results = searchSharedPlaylists(user.userID, tag, song);
         if (results.length === 0) {
-            sharedList.innerHTML = `<div class="alert alert-info">Nessuna playlist trovata.</div>`;
+            sharedList.innerHTML = `<div class="alert alert-info">Nessuna playlist trovata</div>`;
             return;
         }
         const users = JSON.parse(localStorage.getItem('users') || '[]');
@@ -69,7 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!userObj.playlist) userObj.playlist = [];
                 // Evita doppioni
                 if (userObj.playlist.some(p => p.nome === pl.nome)) {
-                    alert('Hai già una playlist con questo nome.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Playlist già importata!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                     return;
                 }
                 userObj.playlist.push({
@@ -79,7 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     descrizione: pl.descrizione
                 });
                 saveUsers(users);
-                alert('Playlist importata!');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Playlist importata!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             });
         });
     }

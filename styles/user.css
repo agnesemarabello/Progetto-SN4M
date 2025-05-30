@@ -1,0 +1,72 @@
+body {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            color: #f1f3f4;
+        }
+        .profile-card {
+            background: #181818;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(30,215,96,0.10);
+            padding: 2.5rem 2rem;
+            max-width: 540px;
+            margin: 48px auto;
+        }
+        .profile-title {
+            color: #1ed760;
+            font-weight: 700;
+        }
+        .playlist-list {
+            margin-top: 1.5rem;
+        }
+        .playlist-item {
+            background: #232526;
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(30,215,96,0.04);
+        }
+        .playlist-item a {
+            color: #1ed760;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .playlist-item a:hover {
+            text-decoration: underline;
+            color: #1db954;
+        }
+        .badge-spotify {
+            background: #1ed760;
+            color: #181818;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .profile-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .btn-edit {
+            background: #1ed760;
+            color: #181818;
+            border: none;
+        }
+        .btn-edit:hover, .btn-edit:focus {
+            background: #1db954;
+            color: #181818;
+        }
+        .btn-delete {
+            background: #ff4d4f;
+            color: #fff;
+            border: none;
+        }
+        .btn-delete:hover, .btn-delete:focus {
+            background: #d90429;
+            color: #fff;
+        }
+        .modal-content {
+            background: #232526;
+            color: #f1f3f4;
+        }
+        .modal-footer .btn {
+            min-width: 100px;
+        }

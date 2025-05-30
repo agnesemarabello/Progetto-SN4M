@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             icon: 'success',
             title: 'Fatto!',
             text: 'Brano aggiunto alla playlist',
-            timer: 1800,
+            timer: 1500,
             background: 'black',
             color: 'white',
             showConfirmButton: false,

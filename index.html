@@ -56,16 +56,27 @@
                         e.preventDefault(); // Impedisce ogni comportamento predefinito
                         e.stopImmediatePropagation(); // Blocca altri eventuali listener
 
-                        const conferma = confirm("Sei sicuro di voler uscire?");
-                        if (conferma) {
-                            sessionStorage.removeItem("logged");
-                            window.location.href = "index.html";
-                            console.log("Logout effettuato con successo");
-                        } else {
-                            console.log("Logout annullato");
-                        }
-                });
-                </script>
+                        Swal.fire({
+                            title: 'Sei sicuro di voler uscire?',
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Sì, esci',
+                            cancelButtonText: 'Annulla',
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#232526',
+                            background: '#181818',
+                            color: '#fff'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                sessionStorage.removeItem("logged");
+                                window.location.href = "index.html";
+                                console.log("Logout effettuato con successo");
+                            } else {
+                                console.log("Logout annullato");
+                            }
+                        });
+                    });
+                    </script>
 
                 <button class="btn btn-outline-light ms-2 d-none" type="button" id="profile-btn">
                     <i class="fas fa-user"></i> Profilo
@@ -108,6 +119,7 @@
             </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/signup.js"></script>

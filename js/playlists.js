@@ -89,11 +89,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 const idx = parseInt(this.getAttribute('data-index'));
                 // Se è l'ultima traccia, chiedi conferma
                 if (playlist.tracks.length === 1) {
-                    const conferma = confirm('Eliminando questa traccia la playlist verrà eliminata. Sei sicuro di voler procedere?');
-                    if (!conferma) return;
-                    user.playlist = user.playlist.filter(p => p.nome !== playlistName);
-                    saveUsers(users);
-                    window.location.href = 'index.html';
+                    Swal.fire({
+                        title: 'Eliminare l\'ultima traccia?',
+                        text: 'Eliminando questa traccia la playlist verrà eliminata. Sei sicuro di voler procedere?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#232526',
+                        confirmButtonText: 'Sì, elimina',
+                        cancelButtonText: 'Annulla',
+                        background: '#181818',
+                        color: '#fff'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            user.playlist = user.playlist.filter(p => p.nome !== playlistName);
+                            saveUsers(users);
+                            window.location.href = 'index.html';
+                        }
+                 });
                     return;
                 }
                 // Altrimenti elimina normalmente
@@ -111,11 +124,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.getElementById('delete-playlist-btn').addEventListener('click', function() {
-            if (confirm('Sei sicuro di voler eliminare questa playlist?')) {
-                user.playlist = user.playlist.filter(p => p.nome !== playlistName);
-                saveUsers(users);
-                window.location.href = 'index.html';
-            }
+            Swal.fire({
+                title: 'Sei sicuro di voler eliminare questa playlist?',
+                text: "Questa azione non può essere annullata!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#232526',
+                confirmButtonText: 'Sì, elimina',
+                cancelButtonText: 'Annulla',
+                background: '#181818',
+                color: '#fff'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    user.playlist = user.playlist.filter(p => p.nome !== playlistName);
+                    saveUsers(users);
+                    window.location.href = 'index.html';
+                }
+            });
         });
     }
 
