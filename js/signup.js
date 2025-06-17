@@ -41,6 +41,7 @@ if (params.nome != null) {
 
     document.getElementById("ButtonInvia").classList.add('d-none');
     document.getElementById("ButtonConferma").classList.remove('d-none');
+    mostraPrivacyCheck(false);
 }
 
 function verifica(elem) {

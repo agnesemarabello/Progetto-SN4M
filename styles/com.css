@@ -70,3 +70,13 @@ hr {
 .logo i {
     margin-right: 10px;
 }
+
+.btn-leave {
+    background-color: #d9534f; /* rosso Bootstrap */
+    border-color: #d43f3a;
+}
+
+.btn-leave:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}

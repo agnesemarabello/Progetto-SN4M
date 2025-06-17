@@ -50,27 +50,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${c.tags.map(tag => `<span class="badge badge-spotify me-1">${tag}</span>`).join('')}
             </div>
             <p class="card-text mb-2"><i class="fas fa-users me-1"></i> <strong>${c.membri.length}</strong> membri</p>
-            ${user && c.membri.includes(user.userID) ?
-                `<span class="badge bg-success">Sei iscritto</span>` :
-                `<button class="btn btn-spotify btn-sm join-btn" data-id="${c.id}"><i class="fas fa-user-plus me-1"></i>Unisciti</button>`
-            }
+             ${user && c.membri.includes(user.userID) ? `
+            <span class="badge bg-success mb-2">Sei iscritto</span>
+            <br>
+            <button class="btn btn-spotify btn-leave btn-sm join-btn" data-id="${c.id}">
+                <i class="fas fa-user-minus me-1"></i>Disiscriviti
+            </button>
+        ` : `
+            <button class="btn btn-spotify btn-sm join-btn" data-id="${c.id}">
+                <i class="fas fa-user-plus me-1"></i>Unisciti
+            </button>
+            `}
         </div>
     </div>
 `).join('');
         // Gestione join
         document.querySelectorAll('.join-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const communities = getCommunities();
-                const c = communities.find(c => c.id === id);
-                const user = getLoggedUser();
-                if (c && user && !c.membri.includes(user.userID)) {
-                    c.membri.push(user.userID);
-                    saveCommunities(communities);
-                    renderCommunities(searchInput.value.trim());
-                }
+    btn.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const communities = getCommunities();
+        const c = communities.find(c => c.id === id);
+        const user = getLoggedUser();
+        if (!c || !user) return;
+
+        const isMember = c.membri.includes(user.userID);
+
+        if (isMember) {
+            // Conferma disiscrizione
+             Swal.fire({
+        title: 'Sei sicuro di voler disiscriverti?',
+        text: `Lascerai la comunità "${c.titolo}"`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sì, disiscrivimi',
+        cancelButtonText: 'Annulla',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#232526',
+        background: '#181818',
+        color: '#fff'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            c.membri = c.membri.filter(m => m !== user.userID);
+            saveCommunities(communities);
+            renderCommunities(searchInput.value.trim());
+            Swal.fire({
+                icon: 'success',
+                title: 'Disiscritto!',
+                text: `Hai lasciato la comunità "${c.titolo}".`,
+                timer: 2000,
+                showConfirmButton: false,
+                background: '#181818',
+                color: '#fff'
             });
-        });
+        }
+    });
+        } else {
+            // Iscrizione
+            c.membri.push(user.userID);
+            saveCommunities(communities);
+            renderCommunities(searchInput.value.trim());
+        }
+    });
+});
     }
 
     // Ricerca
