@@ -15,12 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const communitySelect = document.getElementById('community-select');
     const shareForm = document.getElementById('share-form');
     const shareMsg = document.getElementById('share-msg');
+    const shareWrapper = document.getElementById('share-wrapper');
 
     const user = getLoggedUser();
     if (!user) {
-        shareMsg.innerHTML = `<span class="text-danger">Devi essere loggato</span>`;
-        return;
+    if (shareWrapper) {
+        shareWrapper.innerHTML = `
+            <div class="alert alert-warning text-center p-4">
+                <h5 class="mb-3"><i class="fas fa-exclamation-triangle me-2"></i>Accesso richiesto</h5>
+                <p>Devi essere loggato per condividere una playlist con una comunità.</p>
+                <a href="login.html" class="btn btn-spotify mt-2">Accedi</a>
+            </div>`;
     }
+    return;
+}
 
     // Popola le playlist dell'utente
     (user.playlist || []).forEach(p => {

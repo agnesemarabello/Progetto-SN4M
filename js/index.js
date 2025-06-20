@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const authSection = document.getElementById('auth-section');
     const playlistList = document.getElementById('playlist-list');
     const usernameSpan = document.getElementById('username');
-    
+    const searchForm = document.getElementById('search-form');
 
     // Gestione visibilità pulsanti
     const isLogged = sessionStorage.getItem('logged') !== null;
@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     loginBtn.classList.toggle('d-none', isLogged);
     logoutBtn.classList.toggle('d-none', !isLogged);
 
+    if (searchForm) {
+        if (!isLogged) {
+            searchForm.classList.add('d-none');
+        } else {
+            searchForm.classList.remove('d-none');
+        }
+    }
 
     signupBtn.addEventListener('click', () => window.location.href = 'signup.html');
     loginBtn.addEventListener('click', () => window.location.href = 'login.html');
@@ -26,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isLogged) {
         if (dashboard) dashboard.style.display = '';
         if (authSection) authSection.style.display = 'none';
-
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         const user = users.find(u => u.userID === sessionStorage.getItem('logged'));
         if (usernameSpan && user) usernameSpan.textContent = user.nome;

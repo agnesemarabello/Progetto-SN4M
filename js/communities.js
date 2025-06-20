@@ -16,8 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     let user = users.find(u => u.userID === sessionStorage.getItem('logged'));
     if (!user) {
-        container.innerHTML = `<div class="alert alert-warning">Devi essere loggato per partecipare o creare comunità</div>`;
-        return;
+    container.innerHTML = `
+        <div class="alert alert-warning text-center p-4">
+            <h5 class="mb-3"><i class="fas fa-exclamation-triangle me-2"></i>Accesso richiesto</h5>
+            <p>Devi essere loggato per visualizzare, creare o unirti a una comunità musicale.</p>
+            <a href="login.html" class="btn btn-spotify mt-2">Accedi</a>
+        </div>`;
+    return;
     }
     const communityList = document.getElementById('community-list');
     const searchInput = document.getElementById('community-search');

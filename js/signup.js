@@ -78,7 +78,7 @@ function verifica(elem) {
         return (val != -1) ? success(elem) : danger(elem);
     }
     if (elem.id == "InputPassword1") {
-        var passwordRegolare = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        var passwordRegolare = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
         return passwordRegolare.test(val) ? success(elem) : danger(elem);
     }
     if (elem.id == "InputPassword2") {
