@@ -10,14 +10,15 @@ async function getSpotifyToken() {
     if (tokenStr) {
         try {
             const tokenData = JSON.parse(tokenStr);
+            // Controlla se il token è ancora valido
             if (tokenData.expires > Date.now()) {
                 return tokenData.token;
             }
         } catch (e) {
-            // Se non è JSON valido, ignora e prosegui
+            // Se non è valido, ignora e prosegue
         }
     }
-    // Richiedi nuovo token
+    // Richiesta di un nuovo access token
     const response = await fetch(token_url, {
         method: "POST",
         headers: {

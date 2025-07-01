@@ -57,7 +57,7 @@ function verifica(elem) {
         elem.classList.add('border-success');
         return true;
     }
-
+    // Controlli tramite regex
     if (elem.id == "InputNome" || elem.id == "InputCognome") {
         var espressioneRegolare = /^[a-zA-Z]{3,25}$/;
         return espressioneRegolare.test(val) ? success(elem) : danger(elem);
@@ -150,7 +150,7 @@ function createUser() {
     const usersArray = JSON.parse(localStorage.getItem('users')) || [];
     usersArray.push(newUser);
     window.localStorage.setItem('users', JSON.stringify(usersArray));
-    window.location.href = "regOk.html";
+    window.location.href = "regOk.html"; //registrazione avvenuta con successo
 }
 
 // --- ARTISTI SPOTIFY ---

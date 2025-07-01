@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 `).join('');
         // Gestione join
-        document.querySelectorAll('.join-btn').forEach(btn => {
+    document.querySelectorAll('.join-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const id = this.getAttribute('data-id');
         const communities = getCommunities();
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isMember) {
             // Conferma disiscrizione
-             Swal.fire({
+        Swal.fire({
         title: 'Sei sicuro di voler disiscriverti?',
         text: `Lascerai la comunità "${c.titolo}"`,
         icon: 'warning',

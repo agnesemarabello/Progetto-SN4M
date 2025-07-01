@@ -43,7 +43,7 @@ const params = new URLSearchParams(window.location.search);
         ${playlistsHtml}
     `;
 }
-       if (user) {
+if (user) {
     renderProfile(user);
 
     // Mostra o nasconde i pulsanti in base all'utente loggato

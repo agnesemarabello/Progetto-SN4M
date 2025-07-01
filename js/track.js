@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!user.playlist) user.playlist = [];
     const playlists = user.playlist;
 
-    // Scegli la migliore immagine disponibile
     let albumImage = '';
     if (track.album.images && track.album.images.length > 0) {
         albumImage = track.album.images[1]?.url || track.album.images[0]?.url || '';
