@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tracks: playlist.tracks,
             tags,
             descrizione,
-            communityId // aggiungi anche l'id della community per riferimento
+            communityId 
         });
 
         localStorage.setItem('sharedPlaylist', JSON.stringify(sharedPlaylist));
