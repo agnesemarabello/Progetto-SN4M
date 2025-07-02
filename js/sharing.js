@@ -57,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
             shareMsg.innerHTML = `<span class="text-danger">Seleziona playlist e comunità</span>`;
             return;
         }
+
+        let sharedPlaylist = JSON.parse(localStorage.getItem('sharedPlaylist') || '[]');
         const playlist = (user.playlist || []).find(p => p.nome === playlistName);
         const communitiesAll = getCommunities();
         const community = communitiesAll.find(c => c.id === communityId);
@@ -64,20 +66,23 @@ document.addEventListener('DOMContentLoaded', () => {
             shareMsg.innerHTML = `<span class="text-danger">Errore nella selezione</span>`;
             return;
         }
-        if (!community.sharedPlaylists) community.sharedPlaylists = [];
-        // Evita doppioni
-        if (community.sharedPlaylists.some(pl => pl.nome === playlist.nome && pl.userID === user.userID)) {
+        
+        if (sharedPlaylist.some(pl => pl.nome === playlist.nome && pl.userID === user.userID && pl.communityId === communityId)) {
             shareMsg.innerHTML = `<span class="text-warning">Hai già condiviso questa playlist in questa comunità</span>`;
             return;
         }
-            community.sharedPlaylists.push({
+
+        sharedPlaylist.push({
             nome: playlist.nome,
-            userID: user.userID, // <-- questo è l'utente che ha condiviso
+            userID: user.userID,
             tracks: playlist.tracks,
             tags,
-            descrizione
+            descrizione,
+            communityId // aggiungi anche l'id della community per riferimento
         });
-        saveCommunities(communitiesAll);
+
+        localStorage.setItem('sharedPlaylist', JSON.stringify(sharedPlaylist));
+
         Swal.fire({
             icon: 'success',
             title: 'Playlist condivisa!',
